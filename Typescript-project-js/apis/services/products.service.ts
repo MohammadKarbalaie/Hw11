@@ -7,16 +7,11 @@ interface Params {
   brands?: string[];
 }
 
-export async function getProducts(page: number, brands: string[] | null = null): Promise<any> {
-  const params: Params = { page, limit: 10 };
-  if (brands) {
-    params.brands = brands;
-  }
-  const response = await httpClient().get<any>(urls.sneaker, { params });
-  return response.data;
-}
-
-export async function getBrands(): Promise<any> {
-  const response = await httpClient().get<any>(urls.brands);
-  return response.data;
+export async function getProducts(page: number, brands: string[] | null = null): Promise<any> {  
+  const params: Params = { page, limit: 10 };  
+  if (brands) {  
+   params.brands = brands;  
+  }  
+  const response = await httpClient().get<any>(urls.sneaker, { params });  
+  return response.data;  
 }

@@ -1,4 +1,4 @@
-import { toast } from "../libs/toast";
+// import { toast } from "../libs/toast";
 import { login } from "../apis/services/auth.service.ts";
 import { errorHandler } from "../libs/error-handler";
 import { setSessionToken } from "../libs/session-manager";
@@ -15,7 +15,7 @@ loginForm.addEventListener("submit", async (event: Event) => {
     });
     setSessionToken(response.token);
     console.log(response);
-    toast // toast("Logged in", "success");
+    // toast // toast("Logged in", "success");
     setTimeout(() => {
       window.location.href = "/home";
     }, 3000);

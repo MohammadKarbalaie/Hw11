@@ -1,4 +1,4 @@
-import { toast } from "../libs/toast";
+// import { toast } from "../libs/toast";
 import { signup } from "../apis/services/auth.service";
 import { errorHandler } from "../libs/error-handler";
 import { setSessionToken } from "../libs/session-manager";
@@ -14,7 +14,7 @@ signupForm.addEventListener("submit", async (event: Event) => {
       password: passwordInput.value,
     });
     setSessionToken(response.token);
-    toast// toast("Signed in", "success");
+    //toast// toast("Signed in", "success");
     console.log(response);
     setTimeout(() => {
       window.location.href = "/login";
