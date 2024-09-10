@@ -23,14 +23,14 @@ async function fetchResults() {
     try {  
        let find = String(input.value).toUpperCase();  
        const response = await getSearch(currentPage, find);  
-       const { data, total } = response; // مطمئنا استفاده از destructuring صحیح  
+       const { data, total } = response;  
         
-       // چک کردن وجود داده‌ها  
+     
        if (data.length === 0) {  
           renderResults(input.value);  
        } else {  
           displayResults(data);  
-          setupPagination(total); // اطمینان از اینکه total به درستی استفاده می‌شود  
+          setupPagination(total); 
        }  
     } catch (error) {  
        errorHandler(error);  
@@ -67,7 +67,6 @@ async function displayResults(data: any[]) {
          });  
       });  
 
-      // بعد از اضافه کردن محصولات، بررسی کنید که آیا محصولی وجود دارد یا نه  
       if (productElements.length === 0) {  
          container.innerHTML = 'No more products to display';  
       }  
@@ -77,7 +76,7 @@ async function displayResults(data: any[]) {
 }   
 
 function redirectToDetails(id: string | null) {  
-    if (id) { // بررسی اینکه id null نیست  
+    if (id) {  
         window.location.href = `/product-details.html?id=${id}`;  
     }  
 }  
@@ -108,7 +107,7 @@ function setupPagination(totalItems: number) {
 function updateButtonStyles(selectedPage: number) {  
     const buttons = paginationContainer.getElementsByClassName('pagination-button');  
     for (let button of buttons) {  
-        const htmlButton = button as HTMLElement; // تبدیل به HTMLElement  
+        const htmlButton = button as HTMLElement; 
         if (parseInt(htmlButton.innerText) === selectedPage) {  
             htmlButton.style.backgroundColor = 'black';  
             htmlButton.style.color = 'white';  

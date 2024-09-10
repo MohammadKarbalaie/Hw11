@@ -1,4 +1,3 @@
-// import { toast } from "../libs/toast";
 import { login } from "../apis/services/auth.service.ts";
 import { errorHandler } from "../libs/error-handler";
 import { setSessionToken } from "../libs/session-manager";

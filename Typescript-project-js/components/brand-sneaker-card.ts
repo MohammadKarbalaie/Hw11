@@ -102,10 +102,10 @@ async function setupPagination() {
 
       button.addEventListener("click", () => {  
           fetchProducts(i);  
-          updatePaginationButtonStyles(button); // رنگ دکمه‌های صفحه‌بندی را به‌روزرسانی کنید  
+          updatePaginationButtonStyles(button);  
       });  
 
-      // اگر این دکمه مربوط به صفحه فعلی است، کلاس انتخابی را به آن اضافه کنید  
+
       if (i === currentPage) {  
           button.classList.add('selected');  
       }  

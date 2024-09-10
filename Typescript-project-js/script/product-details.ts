@@ -87,7 +87,7 @@ function displayProductInfo(product: Product) {
 
         sizeButton.onclick = () => {  
             if (selectedSize) {  
-                const previousButton = psize.querySelector(`button[data-size='${selectedSize}']`) as HTMLButtonElement; // Type assertion  
+                const previousButton = psize.querySelector(`button[data-size='${selectedSize}']`) as HTMLButtonElement; 
                 
                 if (previousButton) {  
                     previousButton.style.backgroundColor = "white";  

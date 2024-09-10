@@ -2,7 +2,7 @@ export function renderResults(keyword: string): void {
     const container = document.getElementById('div-render-container') as HTMLElement;  
 
     if (!document.getElementById('noResult')) {  
-        container.style.display = "none"; // پنهان کردن صفحه نتایج  
+        container.style.display = "none";  
         const div = document.createElement('div');  
         div.id = "noResult";  
         container.parentElement?.insertBefore(div, container);  
