@@ -1,7 +1,7 @@
 import { login } from "../apis/services/auth.service.ts";
 import { errorHandler } from "../libs/error-handler";
 import { setSessionToken } from "../libs/session-manager";
-import { toast } from "../libs/toast.ts";
+// import { toast } from "../libs/toast.ts";
 
 const loginForm = document.getElementById("login-form") as HTMLFormElement;
 loginForm.addEventListener("submit", async (event: Event) => {
@@ -15,7 +15,7 @@ loginForm.addEventListener("submit", async (event: Event) => {
     });
     setSessionToken(response.token);
     console.log(response);
-    toast("Logged in", "success");
+    // toast("Logged in", "success");
     setTimeout(() => {
       window.location.href = "/home";
     }, 3000);

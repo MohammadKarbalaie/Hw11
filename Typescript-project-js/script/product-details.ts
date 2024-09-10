@@ -1,6 +1,6 @@
 import { errorHandler } from "../libs/error-handler";
 import { GetProductsInfo } from "../apis/services/product-details.servies";
-import { toast } from "../libs/toast.ts";
+// import { toast } from "../libs/toast.ts";
 
 interface Product {  
     imageURL: string;  
@@ -145,6 +145,6 @@ async function loadProductDetails(id: string | null) {
         await fetchProductInfo(parseInt(id, 10));  
     } else {  
         // Assuming you have a toast function defined somewhere  
-        toast("Product ID is missing.");  
+        // toast("Product ID is missing.");  
     }  
 }
