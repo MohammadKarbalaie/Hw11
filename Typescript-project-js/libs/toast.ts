@@ -1,15 +1,16 @@
-// import Toastify from "toastify-js";
+import StartToastifyInstance from "toastify-js";
 
-// export const toast = () => {
-//   Toastify({
-    // text,
-    // duration: 3000,
-    // close: true,
-    // style: {
-    //   background: mode === "success" ? "green" : "red",
-    //   fontSize: "18px",
-    //   fontWeight: "600",
-    //   borderRadius: "10px",
-    // },
-//   }).showToast();
-// };
+
+export const toast = (text: string, mode= "error") => {
+  StartToastifyInstance({
+    text,
+    duration: 3000,
+    close: true,
+    style: {
+      background: mode === "success" ? "green" : "red",
+      fontSize: "18px",
+      fontWeight: "600",
+      borderRadius: "10px",
+    },
+  }).showToast();
+};

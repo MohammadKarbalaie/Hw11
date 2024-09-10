@@ -1,5 +1,5 @@
 import { getProducts } from "../apis/services/products.service";
-//  import { toast } from "../libs/toast";
+ import { toast } from "../libs/toast";
 
 async function fetchProducts(page = 1, brand: string[] | null = null) {  
     try {  
@@ -8,7 +8,7 @@ async function fetchProducts(page = 1, brand: string[] | null = null) {
      displayProducts(products);  
      updatePagination(page);    
     } catch (error) {  
-        //  toast('An error occurred while fetching the products.');  
+         toast('An error occurred while fetching the products.');  
     }  
 }
 
