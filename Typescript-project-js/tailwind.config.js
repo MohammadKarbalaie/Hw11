@@ -6,6 +6,7 @@ export default {
     "./signup.html",
     "./home.html",
     "./search.html",
+    "product-details.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
