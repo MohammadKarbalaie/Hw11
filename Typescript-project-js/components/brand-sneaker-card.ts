@@ -71,22 +71,33 @@ async function fetchProducts(page: number) {
     }  
 }  
 
-function displayProducts(products: any[]) {  
-    const productDiv = document.getElementById('p-Elemnet') as HTMLElement;  
-    productDiv.innerHTML = '';  
-    products.forEach(product => {  
-        productDiv.innerHTML += `  
-            <div class="flex flex-col mt-4" data-id="${product.id}">  
-                <img src="${product.imageURL}" alt="${product.name}">  
-                <p class="text-lg font-bold">${truncateName(product.name)}</p>  
-                <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
-            </div>  
-        `;  
-    });  
-}  
+function displayProducts(products: any[]) {
+    const productDiv = document.getElementById('p-Elemnet') as HTMLElement;
+    productDiv.innerHTML = '';
+    
+    products.forEach(product => {
+        const productItem = document.createElement('div');
+        productItem.className = "flex flex-col mt-4";
+        productItem.style.cursor = "pointer";
+        productItem.innerHTML = `
+            <img src="${product.imageURL}" alt="${product.name}"> 
+            <p class="text-lg font-bold mt-2">${truncateName(product.name)}</p>  
+            <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>
+        `;
+  
+        productItem.addEventListener('click', () => redirectToDetails(product.id));
+  
+        productDiv.appendChild(productItem);
+    });
+}
+ 
 
 function truncateName(name: string): string {  
     return name.split(' ').length > 2 ? name.split(' ').slice(0, 2).join(' ') + '...' : name;  
+}  
+
+function redirectToDetails(id: string) {  
+    window.location.href = `/product-details.html?id=${id}`;  
 }  
 
 async function setupPagination() {  

@@ -14,7 +14,7 @@
     border: 1px solid black;  
     padding: 5px 35px;  
     cursor: pointer;  
-    border-radius: 30px; /* یک مقدار بزرگتر برای نیمه گرد کردن */  
+    border-radius: 30px;   
     margin: 4px;  
     transition: background-color 0.3s;
   }
@@ -25,7 +25,7 @@
     border: 1px solid black;  
     padding: 5px 10px;  
     cursor: pointer;  
-    border-radius: 20px; /* یک مقدار بزرگتر برای نیمه گرد کردن */  
+    border-radius: 20px;   
     margin: 4px;  
     transition: background-color 0.3s;
   }
