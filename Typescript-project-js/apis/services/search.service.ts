@@ -1,18 +1,18 @@
-import { urls } from "../url";
-import { httpClient } from "../client";
+import { urls } from "../url";  
+import { httpClient } from "../client";  
 
-interface SearchParams {
-    page: number;
-    limit: number;
-    search?: string;
-}
+interface SearchParams {  
+    page: number;  
+    limit: number;  
+    search?: string;  
+}  
 
 export async function getSearch(page: number, search?: string): Promise<any> {  
-    const params: SearchParams = { page, limit: 42 };  
+    const params: SearchParams = { page, limit: 10 };  
     if (search) {  
        params.search = search;  
-    } 
+    }   
     
-    const response = await httpClient().get(urls.sneaker, { params }); 
+    const response = await httpClient().get(urls.sneaker, { params });   
     return response.data;  
-}
+}  

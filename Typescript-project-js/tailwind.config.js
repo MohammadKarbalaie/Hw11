@@ -5,10 +5,13 @@ export default {
     "./login.html",
     "./signup.html",
     "./home.html",
+    "./search.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar-hide')
+  ],
 }
