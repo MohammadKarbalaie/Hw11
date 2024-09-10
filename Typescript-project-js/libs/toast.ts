@@ -1,14 +1,15 @@
-// import Toast from 'typescript-toastify'
+import Toastify from "toastify-js";
 
-// export const toast = new Toast({
-//   position: "top-right",
-//   toastMsg: "this is error",
-//   autoCloseTime: 4500,
-//   canClose: true,
-//   showProgress: true,
-//   pauseOnHover: true,
-//   pauseOnFocusLoss: true,
-//   type: "error",
-//   theme: "dark"
-// });
-
+export const toast = (text: any , mode = "error") => {
+  Toastify({
+    text,
+    duration: 3000,
+    close: true,
+    style: {
+      background: mode === "success" ? "green" : "red",
+      fontSize: "18px",
+      fontWeight: "600",
+      borderRadius: "10px",
+    },
+  }).showToast();
+};

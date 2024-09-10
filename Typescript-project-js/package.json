@@ -16,9 +16,9 @@
     "vite": "^5.4.1"
   },
   "dependencies": {
+    "@types/toastify-js": "^1.12.3",
     "axios": "^1.7.7",
     "swiper": "^11.1.12",
-    "tailwind-scrollbar-hide": "^1.1.7",
-    "typescript-toastify": "^1.0.4"
+    "tailwind-scrollbar-hide": "^1.1.7"
   }
 }
