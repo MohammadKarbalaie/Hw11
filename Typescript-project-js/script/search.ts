@@ -20,22 +20,21 @@ async function Search() {
 }  
 
 async function fetchResults() {  
-    try {  
+   try {  
        let find = String(input.value).toUpperCase();  
        const response = await getSearch(currentPage, find);  
-       const { data, total } = response;  
-        
-     
+       const { data, total } = response; 
+
        if (data.length === 0) {  
-          renderResults(input.value);  
+           renderResults(input.value);  
        } else {  
-          displayResults(data);  
-          setupPagination(total); 
+           displayResults(data);  
+           setupPagination(total);
        }  
-    } catch (error) {  
+   } catch (error) {  
        errorHandler(error);  
-    }  
- }   
+   }  
+}   
   
 async function displayResults(data: any[]) {  
    try {  

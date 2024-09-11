@@ -5,15 +5,15 @@ import { removeSessionToken } from "../libs/session-manager";
 const greeting = document.getElementById('greeting') as HTMLElement;
 const username = document.getElementById("username") as HTMLElement;
 
-async function fetchUserInfo() {
-  try {
-    const response = await getUserInfo();
-    username.innerText = response.username;
-    username.setAttribute("title", response.username);
-  } catch (error) {
-    errorHandler(error);
-  }
-}
+async function fetchUserInfo() {  
+  try {  
+      const response = await getUserInfo();   
+      username.innerText = response.username;  
+      username.setAttribute("title", response.username);  
+  } catch (error) {  
+      errorHandler(error);  
+  }  
+}  
 
 async function displayGreeting() {
   try {
