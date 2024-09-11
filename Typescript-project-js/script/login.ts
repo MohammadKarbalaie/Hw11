@@ -15,7 +15,7 @@ loginForm.addEventListener("submit", async (event: Event) => {
     });
     setSessionToken(response.token);
     console.log(response);
-    toast("Logged in", "success");
+    toast("Logged in ", "success");
     setTimeout(() => {
       window.location.href = "/home";
     }, 3000);
