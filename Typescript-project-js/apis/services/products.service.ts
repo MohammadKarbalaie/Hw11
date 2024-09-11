@@ -10,7 +10,8 @@ interface Product {
 }  
 interface ProductResponse {  
   total: number; 
-  data: Product[]; 
+  data: Product[];
+  totalPages:number 
 }  
 
 interface Params {  
@@ -20,6 +21,7 @@ interface Params {
 }  
 
 export async function getProducts(page: number, brands: string[] | null = null): Promise<ProductResponse> {  
+  
   const params: Params = { page, limit: 10 };  
   if (brands) {  
       params.brands = brands;  

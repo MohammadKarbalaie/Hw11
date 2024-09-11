@@ -6,7 +6,7 @@ async function fetchProducts(page = 1, brand: string[] | null = null) {
      const response = await getProducts(page, brand);  
      const products = response.data;  
      displayProducts(products);  
-     updatePagination(page);    
+     updatePagination(page, response.totalPages);    
     } catch (error) {  
          toast('An error occurred while fetching the products.');  
     }  
@@ -42,30 +42,27 @@ function redirectToDetails(id: string) {
 
 
 
+function updatePagination(currentPage: number, totalPages: number) {  
+    const paginationDiv = document.getElementById('pagination') as HTMLElement;  
+    paginationDiv.innerHTML = '';  
 
-function updatePagination(currentPage: number) {
-    const paginationDiv = document.getElementById('pagination') as HTMLElement;
-    paginationDiv.innerHTML = '';
+    for (let i = 1; i <= totalPages; i++) {  
+        const pageButton = document.createElement('button');  
+        pageButton.innerText = i.toString();  
+        pageButton.className = "pagination-button";  
+        pageButton.style.padding = '5px 10px';  
+        pageButton.style.border = "1px solid gray";  
+        pageButton.style.margin = "0px 5px";  
+        pageButton.style.backgroundColor = (i === currentPage) ? 'black' : 'white';  
+        pageButton.style.color = (i === currentPage) ? 'white' : 'black';  
 
-    const totalPages = 5; 
-    for (let i = 1; i <= totalPages; i++) {
-        const pageButton = document.createElement('button');
-        pageButton.innerText = i.toString();
-        pageButton.className = "pagination-button";
-        pageButton.style.padding= '5px 10px';
-        pageButton.style.border = "1px solid gray";
-        pageButton.style.margin ="0px 5px";
-        pageButton.style.backgroundColor = (i === currentPage) ? 'black' : 'white';
-        pageButton.style.color = (i === currentPage) ? 'white' : 'black';
+        pageButton.addEventListener('click', () => {  
+            fetchProducts(i);  
+        });  
 
-        pageButton.addEventListener('click', () => {
-            fetchProducts(i);
-        });
-
-        paginationDiv.appendChild(pageButton);
-    }
-    
-}
+        paginationDiv.appendChild(pageButton);  
+    }  
+}  
 
 
 fetchProducts();
