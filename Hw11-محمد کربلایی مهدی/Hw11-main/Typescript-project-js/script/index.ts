@@ -1,5 +1,5 @@
-const nextButton = <HTMLElement> document.getElementById('next-button');
-const getStartedButton = <HTMLElement> document.getElementById('get-started-button');
+const nextButton = document.getElementById('next-button') as HTMLButtonElement;
+const getStartedButton = document.getElementById('get-started-button')as HTMLButtonElement;
 const swiper = new Swiper('.swiper', {  
 pagination: {  
 el: '.swiper-pagination',  

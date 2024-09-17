@@ -1,49 +1,51 @@
-import { getProducts } from "../apis/services/products.service";
- import { toast } from "../libs/toast";
+import { getProducts } from "../apis/services/products.service";  
+import { toast } from "../libs/toast";  
+import { Product } from "../libs/types"  
+
 
 async function fetchProducts(page = 1, brand: string[] | null = null) {  
     try {  
-     const response = await getProducts(page, brand);  
-     const products = response.data;  
-     displayProducts(products);  
-     updatePagination(page, response.totalPages);    
+        const response = await getProducts(page, brand);  
+        const products = response.data as {} as Product[];
+        displayProducts(products);  
+        console.log(products);  
+        updatePagination(page, response.totalPages);    
     } catch (error) {  
-         toast('An error occurred while fetching the products.');  
+        console.log(error);  
+        toast('An error occurred while fetching the products.');  
     }  
-}
+}  
 
-function displayProducts(products: any[]) {
-    const productDiv = document.getElementById('p-Elemnet') as HTMLElement;
-    productDiv.innerHTML = '';
-    
-    products.forEach(product => {
-        const productItem = document.createElement('div');
-        productItem.className = "flex flex-col mt-4";
-        productItem.style.cursor = "pointer";
-        productItem.innerHTML = `
-            <img src="${product.imageURL}" alt="${product.name}"> 
+function displayProducts(products: Product[]) {  
+    const productDiv = <HTMLElement>document.getElementById('p-Elemnet');  
+    productDiv.innerHTML = '';  
+
+    products.forEach(product => {  
+        const productItem = document.createElement('div');  
+        productItem.className = "flex flex-col mt-4";  
+        productItem.style.cursor = "pointer";  
+        productItem.innerHTML = `  
+            <img src="${product.imageURL}" alt="${product.name}">   
             <p class="text-lg font-bold mt-2">${truncateName(product.name)}</p>  
-            <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>
-        `;
+            <p class="text-lg justify-start items-start font-semibold">$${product.price}</p>  
+        `;  
   
-        productItem.addEventListener('click', () => redirectToDetails(product.id));
+        productItem.addEventListener('click', () => redirectToDetails(product.id));  
   
-        productDiv.appendChild(productItem);
-    });
-}
+        productDiv.appendChild(productItem);  
+    });  
+}  
 
-function truncateName(name: string): string {
-    return name.split(' ').length > 2 ? name.split(' ').slice(0, 2).join(' ') + '...' : name;
-}
+function truncateName(name: string): string {  
+    return name.split(' ').length > 2 ? name.split(' ').slice(0, 2).join(' ') + '...' : name;  
+}  
 
 function redirectToDetails(id: string) {  
     window.location.href = `/product-details.html?id=${id}`;  
 }  
 
-
-
 function updatePagination(currentPage: number, totalPages: number) {  
-    const paginationDiv = document.getElementById('pagination') as HTMLElement;  
+    const paginationDiv = <HTMLElement>document.getElementById('pagination');  
     paginationDiv.innerHTML = '';  
 
     for (let i = 1; i <= totalPages; i++) {  
@@ -64,5 +66,4 @@ function updatePagination(currentPage: number, totalPages: number) {
     }  
 }  
 
-
-fetchProducts();
+fetchProducts();   

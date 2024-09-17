@@ -1,6 +1,5 @@
 import { getProducts } from "../apis/services/products.service";  
 import { getBrands } from "../apis/services/brand.service";  
-import { Product } from "../libs/types"  
 
 let currentPage = 1;  
 let totalProducts = 0;  
@@ -25,7 +24,7 @@ async function getBrandHome() {
 
 
 function displayBrands(brandArray: string[]) {  
-    const brandList = <HTMLElement>document.getElementById('brn');
+    const brandList = document.getElementById('brn') as HTMLElement;  
     brandList.innerHTML = '';  
 
     const allButton = createBrandButton('All', () => {  
@@ -69,14 +68,14 @@ async function fetchProducts(page: number) {
     try {  
         const response = await getProducts(page, currentBrand);  
         totalProducts = response.total;  
-        displayProducts(response.data as {} as Product[]); 
+        displayProducts(response.data);  
         setupPagination();  
     } catch (error) {  
         console.error('An error occurred while fetching the products.', error);  
     }  
 }  
-function displayProducts(products: Product[]) {  
-    const productDiv = <HTMLElement>document.getElementById('p-Elemnet');  
+function displayProducts(products: any[]) {  
+    const productDiv = document.getElementById('p-Elemnet') as HTMLElement;  
     productDiv.innerHTML = '';  
     
     products.forEach(product => {  
@@ -104,7 +103,7 @@ function redirectToDetails(id: string) {
 }  
 
 async function setupPagination() {  
-  const paginationDiv = <HTMLElement> document.getElementById("pagination");  
+  const paginationDiv = document.getElementById("pagination") as HTMLElement;  
   paginationDiv.innerHTML = "";  
 
   const totalPages = Math.ceil(totalProducts / 10);  

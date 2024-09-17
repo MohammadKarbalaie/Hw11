@@ -1,5 +1,5 @@
 export function renderResults(keyword: string): void {  
-    const container =<HTMLElement> document.getElementById('div-render-container'); 
+    const container = document.getElementById('div-render-container') as HTMLElement;  
 
     if (!document.getElementById('noResult')) {  
         container.style.display = "none";  

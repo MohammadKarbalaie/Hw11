@@ -1,0 +1,66 @@
+<!DOCTYPE html >  
+<html lang="en">  
+<head>  
+   <meta charset="UTF-8">  
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css' integrity='sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==' crossorigin='anonymous'/>
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <title>Home Shopping</title>   
+</head>  
+<body class="h-screen flex flex-col font-inter">  
+    <div class="w-full overflow-auto">
+                <!-- Header -->  
+        <header class="w-full flex justify-between items-center p-4 mx-auto">  
+          <div>
+              <p class="text-lg w-full" id="greeting">Good Morning 👋</p>  
+             <div class="flex flex-nowrap">
+              <p class="text-lg w-full font-semibold mr-2" id="username"></p>|
+              <p class="w-full text-md font-semibold  hover:text-gray-400 cursor-pointer mt-[1px] ml-2" id="logout">  Log Out</p>
+             </div>   
+          </div>  
+        <div class="flex space-x-2">  
+          <div><i class="fa fa-bell-o text-2xl cursor-pointer"></i></div>  
+          <div><i class="fa fa-heart-o text-2xl cursor-pointer"></i></div>  
+        </div> 
+      </header>  
+
+      <div class="w-full px-8 relative mx-auto">
+          <input type="text" id="text-search" class="bg-gray-50 border px-8 border-gray-300 text-gray-800 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-100 dark:border-gray-200 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Search">  
+          <button type="submit" class="fas fa-search opacity-60 absolute top-2 text-xl left-10 cursor-pointer " id="search-btn"></button>
+      </div> 
+<div id="div-render-container">
+      <!-- Filter buttons -->  
+      <div class="w-full grid grid-cols-2 justify-center items-center mx-auto"> 
+      <h1 class="flex flex-nowrap justify-start items-start pl-6 font-bold text-2xl">Most Popular</h1> 
+      <h1 class="flex flex-nowrap justify-end items-end pr-6 font-semibold text-xl py-4">See All</h1>
+      </div>
+
+      <section class="w-12/12 flex space-x-2 p-4 ml-2 overflow-x-scroll scrollbar-hide pb-10 " id="brn">  
+      </section>
+
+      <div id="p-container" >
+       <section class="grid grid-cols-2 gap-4 pt-0 mx-8" id="p-Elemnet">  
+      </section>  
+      <div id="pagination" class="flex justify-center mt-10"></div> 
+    </div>
+</div>    
+      <!-- Footer navigation -->  
+      <footer class="w-full flex flex-wrap justify-center mt-6 py-3 pt-10 items-center bg-white border-t-2 overflow-hidden">  
+      <div class="mx-3 cursor-pointer"><i class="fas fa-house-chimney ml-3"></i><p>Home</p></div>
+      <div class="mx-3 cursor-pointer"><i class="fas fa-bag-shopping ml-2 text-gray-400"></i><p></p>Cart</div>
+      <div class="mx-3 cursor-pointer"><i class="fas fa-cart-shopping ml-3 text-gray-400"></i><p></p>Order</div>
+      <div class="mx-3 cursor-pointer"><i class="fas fa-wallet ml-3 text-gray-400"></i><p></p>Wallet</div>
+      <div class="mx-3 w-5  ml-2 cursor-pointer"><i class="fas fa-user ml-4 text-gray-400"></i><p></p>Profile</div>
+      </footer>
+    </div>
+   <script src="script/controls.ts"></script>
+   <script defer type="module" src="components/search-failed.ts"></script>
+   <script defer type="module" src="script/search.ts"></script>
+   <script defer type="module" src="components/brand-sneaker-card.ts"></script>
+   <script defer type="module" src="components/sneaker-card.ts"></script>
+   <script defer type="module" src="script/dashboard.ts"></script> 
+    <script defer type="module" src="src/main.ts"></script>
+</body>
+</html>
+
+

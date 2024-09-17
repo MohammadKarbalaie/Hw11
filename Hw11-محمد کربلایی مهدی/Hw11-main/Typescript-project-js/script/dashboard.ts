@@ -2,8 +2,8 @@ import { errorHandler } from "../libs/error-handler";
 import { getUserInfo } from "../apis/services/user.service";
 import { removeSessionToken } from "../libs/session-manager";
 
-const greeting = <HTMLElement> document.getElementById('greeting');
-const username = <HTMLElement> document.getElementById("username");
+const greeting = document.getElementById('greeting') as HTMLElement;
+const username = document.getElementById("username") as HTMLElement;
 
 async function fetchUserInfo() {  
   try {  

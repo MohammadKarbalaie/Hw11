@@ -22,7 +22,7 @@ interface SearchResponse {
     perPage: number; // تعداد محصولات در هر صفحه  
 }  
 
- 
+// استفاده از نوع جستجو  
 interface SearchParams {  
     page: number;  
     limit: number;  
@@ -33,7 +33,8 @@ export async function getSearch(page: number, search?: string): Promise<SearchRe
     const params: SearchParams = { page, limit: 10 };  
     if (search) {  
         params.search = search;  
-    }    
+    }   
+    // واکشی اطلاعات جستجو از API  
     const response = await httpClient().get<SearchResponse>(urls.sneaker, { params });   
     return response.data;  
 }  

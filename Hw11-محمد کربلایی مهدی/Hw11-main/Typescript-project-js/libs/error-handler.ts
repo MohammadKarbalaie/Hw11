@@ -1,16 +1,7 @@
 import { removeSessionToken } from "./session-manager";
 import { toast } from "./toast"; 
 
-interface Error {  
-  response?: {  
-    data?: {  
-      message?: string | string[];  
-      statusCode?: number;  
-    };  
-  };  
-}  
-
-export const errorHandler = (error : Error): void => {
+export const errorHandler = (error: any): void => {
   const message: string | string[] | undefined = error.response?.data?.message;
 
   if (typeof message === "string") {

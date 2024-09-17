@@ -144,6 +144,7 @@ async function loadProductDetails(id: string | null) {
     if (id) {  
         await fetchProductInfo(parseInt(id, 10));  
     } else {  
+        // Assuming you have a toast function defined somewhere  
         toast("Product ID is missing.");  
     }  
 }

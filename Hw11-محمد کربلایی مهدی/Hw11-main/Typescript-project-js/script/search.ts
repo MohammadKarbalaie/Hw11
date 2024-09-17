@@ -1,7 +1,6 @@
 import { getSearch } from "../apis/services/search.service";  
 import { errorHandler } from "../libs/error-handler";  
 import { renderResults } from "../components/search-failed";  
-import { Product } from "../libs/types"  
   
 const input = document.getElementById('text-search') as HTMLInputElement;  
 const container = document.getElementById('p-Elemnet') as HTMLElement;  
@@ -29,7 +28,7 @@ async function fetchResults() {
        if (data.length === 0) {  
            renderResults(input.value);  
        } else {  
-           displayResults(data as {} as Product[]);  
+           displayResults(data);  
            setupPagination(total);
        }  
    } catch (error) {  
@@ -37,7 +36,7 @@ async function fetchResults() {
    }  
 }   
   
-async function displayResults(data: Product[]) {  
+async function displayResults(data: any[]) {  
    try {  
       const div = document.getElementById('noResult');
       const render = document.getElementById('div-render-container') as HTMLElement;  
