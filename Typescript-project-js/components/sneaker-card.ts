@@ -1,3 +1,4 @@
+import { AxiosResponse } from "axios";
 import { getProducts } from "../apis/services/products.service";  
 import { toast } from "../libs/toast";  
 import { Product } from "../libs/types"  
@@ -5,8 +6,8 @@ import { Product } from "../libs/types"
 
 async function fetchProducts(page = 1, brand: string[] | null = null) {  
     try {  
-        const response = await getProducts(page, brand);  
-        const products = response.data as {} as Product[];
+        const response =  await getProducts(page, brand);  
+        const products =  response.data 
         displayProducts(products);  
         console.log(products);  
         updatePagination(page, response.totalPages);    
@@ -40,7 +41,7 @@ function truncateName(name: string): string {
     return name.split(' ').length > 2 ? name.split(' ').slice(0, 2).join(' ') + '...' : name;  
 }  
 
-function redirectToDetails(id: string) {  
+function redirectToDetails(id: number) {  
     window.location.href = `/product-details.html?id=${id}`;  
 }  
 
